@@ -17,7 +17,12 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+private slots:
+    void on_actionOE_Test_triggered();
+
 private:
     Ui::MainWindow *ui;
+    class OmegaEditClientFacade* oe_client_;
+    class Viewport* viewport_;
 };
 #endif // MAINWINDOW_H
