@@ -25,6 +25,13 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         ${PROJECT_SOURCES}
         core/test.cpp
         omegaeditclientfacade.h omegaeditclientfacade.cpp
+        core/session/session.h core/session/session.cpp
+        core/service/IComponentCreator.h
+        core/session/ISessionEventListener.h
+        core/session/viewport.h core/session/viewport.cpp
+        core/session/sessionviewportmanager.h core/session/sessionviewportmanager.cpp
+        core/session/ISession.h
+        core/session/IViewport.h
     )
 # Define target properties for Android with Qt 6 as:
 #    set_property(TARGET BitSculptor APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR
@@ -46,7 +53,10 @@ endif()
 
 target_link_libraries(BitSculptor PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
 target_link_libraries(BitSculptor PRIVATE /home/orion/Code/QT/BitSculptor/external/omega-edit/lib/libomega_edit.so.0.9.78)
-target_include_directories(BitSculptor PRIVATE /home/orion/Code/QT/BitSculptor/external/omega-edit/include)
+target_include_directories(BitSculptor
+    PRIVATE /home/orion/Code/QT/BitSculptor/external/omega-edit/include
+    PRIVATE /home/orion/Code/QT/BitSculptor/core/
+)
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
 # If you are developing for iOS or macOS you should consider setting an
 # explicit, fixed bundle identifier manually though.

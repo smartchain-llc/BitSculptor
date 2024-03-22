@@ -22,7 +22,6 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
-    class OmegaEditClientFacade* oe_client_;
-    class Viewport* viewport_;
+    class Session* session_ { nullptr };
 };
 #endif // MAINWINDOW_H
